@@ -63,6 +63,78 @@ class Profile(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
+    def update(self, request, pk=None):
+        """
+        @api {PUT} /profile UPDATE user profile info
+        @apiName UpdateProfile
+        @apiGroup UserProfile
+
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {String} first_name User first name
+        @apiParam {String} last_name User last name
+        @apiParam {String} email User email
+        @apiParam {String} phone_number User phone number
+        @apiParam {String} address User address
+
+        @apiParamExample {json} Input
+            {
+                "first_name": "Brenda",
+                "last_name": "Long",
+                "email": "brenda@brendalong.com",
+                "phone_number": "555-1212",
+                "address": "100 Indefatiguable Way"
+            }
+
+        @apiSuccess (200) {Object} profile Updated profile information
+
+        @apiSuccessExample {json} Success
+            HTTP/1.1 200 OK
+            {
+                "id": 7,
+                "user": {
+                    "first_name": "Brenda",
+                    "last_name": "Long",
+                    "email": "brenda@brendalong.com"
+                },
+                "phone_number": "555-1212",
+                "address": "100 Indefatiguable Way",
+                "is_admin": false
+            }
+        """
+        try:
+            # Get the current volunteer
+            volunteer = Volunteer.objects.get(user=request.auth.user)
+
+            # Update User model fields
+            user = request.auth.user
+            user.first_name = request.data.get("first_name", user.first_name)
+            user.last_name = request.data.get("last_name", user.last_name)
+            user.email = request.data.get("email", user.email)
+            user.save()
+
+            # Update Volunteer model fields
+            volunteer.phone_number = request.data.get(
+                "phone_number", volunteer.phone_number
+            )
+            volunteer.address = request.data.get("address", volunteer.address)
+            volunteer.save()
+
+            # Return the updated profile
+            serializer = ProfileSerializer(user, context={"request": request})
+            serializer = ProfileSerializer(volunteer, context={"request": request})
+            return Response(serializer.data)
+
+        except ObjectDoesNotExist:
+            return Response(
+                {"message": "Profile not found for current user"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        except Exception as ex:
+            return HttpResponseServerError(ex)
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     """JSON serializer for user profiles"""

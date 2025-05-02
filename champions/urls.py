@@ -21,7 +21,7 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
-from championsapi.models import *
+from championsapi.models import Volunteer
 from championsapi.views import Users, register_user, login_user, Profile
 
 router = routers.DefaultRouter(trailing_slash=False)
