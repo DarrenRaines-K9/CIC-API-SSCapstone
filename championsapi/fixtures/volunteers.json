@@ -1,0 +1,39 @@
+[
+    {
+        "model": "championsapi.volunteer",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "phone_number": "555-1212",
+            "address": "100 Infinity Way"
+        }
+    },
+    {
+        "model": "championsapi.volunteer",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "phone_number": "555-1212",
+            "address": "100 Endless Way"
+        }
+    },
+    {
+        "model": "championsapi.volunteer",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "phone_number": "555-1212",
+            "address": "100 Dauntless Way"
+        }
+    },
+    {
+        "model": "championsapi.volunteer",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "phone_number": "555-1212",
+            "address": "100 Indefatiguable Way"
+        }
+    }
+    ]
+    

@@ -1,0 +1,96 @@
+Table users {
+  id integer pk
+  first_name varchar  
+  last_name varchar  
+  email varchar
+  password varchar
+}
+
+Table volunteer {
+  id integer pk
+  user_id integer 
+  address varchar  
+  phoneNumber integer
+  DOB date
+}
+
+Table events {
+  id integer pk 
+  user_id integer 
+  title varchar
+  location_id integer
+  volunteer_id integer
+  time time
+  date date 
+  }
+
+Table inventory {
+  id integer pk
+  user_id integer 
+  name varchar 
+  type varchar 
+  description varchar
+  quantity integer 
+  cost integer
+  }
+
+Table event_inventory {
+  id integer pk 
+  event_id integer
+  inventory_id integer 
+  }
+
+Table event_volunteer {
+  id integer pk 
+  event_id integer
+  volunteer_id integer 
+  }
+Table location {
+  id integer pk 
+  City varchar
+  Sate varchar
+  x_coordinate integer
+  y_coordinate integer 
+  }
+
+Table analaytics {
+  id integer pk 
+  event_id integer
+  location_id integer
+  inventory_id integer
+  volunteer_id integer
+  user_id integer
+  attendance integer
+  inventory_needed varchar
+  }
+
+
+
+
+Ref: "users"."id" < "inventory"."user_id"
+
+Ref: "users"."id" < "events"."user_id"
+
+Ref: "events"."id" < "event_inventory"."event_id"
+
+Ref: "inventory"."id" < "event_inventory"."inventory_id"
+
+Ref: "users"."id" < "volunteer"."user_id"
+
+Ref: "events"."id" < "event_volunteer"."event_id"
+
+Ref: "volunteer"."id" < "event_volunteer"."volunteer_id"
+
+Ref: "location"."id" < "events"."location_id"
+
+Ref: "events"."id" < "analaytics"."event_id"
+
+Ref: "location"."id" < "analaytics"."location_id"
+
+Ref: "volunteer"."id" < "analaytics"."volunteer_id"
+
+Ref: "inventory"."id" < "analaytics"."inventory_id"
+
+Ref: "users"."id" < "analaytics"."user_id"
+
+Ref: "volunteer"."id" < "events"."volunteer_id"
