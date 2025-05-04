@@ -28,7 +28,7 @@
             "first_name": "Joe",
             "last_name": "Shepherd",
             "email": "joe@joeshepherd.com",
-            "is_staff": false,
+            "is_staff": true,
             "is_active": true,
             "date_joined": "2019-10-10T22:47:43.564Z",
             "groups": [],

@@ -63,6 +63,8 @@ def register_user(request):
         password=req_body["password"],
         first_name=req_body["first_name"],
         last_name=req_body["last_name"],
+        is_staff=req_body["is_staff"],
+        is_superuser=req_body["is_superuser"],
     )
     new_user.save()
 

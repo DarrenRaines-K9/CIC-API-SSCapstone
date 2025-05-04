@@ -22,12 +22,20 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from championsapi.models import Volunteer
-from championsapi.views import Users, register_user, login_user, Profile
+from championsapi.views import (
+    Users,
+    register_user,
+    login_user,
+    Profile,
+    Events,
+    InventoryViewset,
+)
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r"users", Users, "user")
 router.register(r"profile", Profile, "profile")
-
+router.register(r"events", Events, "event")
+router.register(r"inventory", InventoryViewset, "inventory")
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [

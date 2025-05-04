@@ -1,0 +1,134 @@
+[
+    {
+    "model": "championsapi.inventory",
+    "pk": 1,
+    "fields": {
+      "volunteer": 1,
+      "name": "Garden Gloves",
+      "quantity": 25,
+      "description": "Protective gloves for gardening and cleanup activities",
+      "cost": "8.99"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 2,
+    "fields": {
+      "volunteer": 1,
+      "name": "Trash Bags",
+      "quantity": 100,
+      "description": "Heavy-duty trash bags for cleanup events",
+      "cost": "12.50"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 3,
+    "fields": {
+      "volunteer": 1,
+      "name": "Safety Vests",
+      "quantity": 15,
+      "description": "High-visibility vests for roadside cleanup",
+      "cost": "7.25"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 4,
+    "fields": {
+      "volunteer": 2,
+      "name": "First Aid Kits",
+      "quantity": 10,
+      "description": "Basic first aid supplies for emergency use",
+      "cost": "22.99"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 5,
+    "fields": {
+      "volunteer": 2,
+      "name": "Water Bottles",
+      "quantity": 50,
+      "description": "Reusable water bottles for volunteers",
+      "cost": "5.75"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 6,
+    "fields": {
+      "volunteer": 2,
+      "name": "Hand Sanitizer",
+      "quantity": 30,
+      "description": "8oz bottles of hand sanitizer",
+      "cost": "3.50"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 7,
+    "fields": {
+      "volunteer": 3,
+      "name": "Gardening Tools",
+      "quantity": 8,
+      "description": "Set of basic gardening tools including trowel, fork, and pruners",
+      "cost": "45.99"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 8,
+    "fields": {
+      "volunteer": 3,
+      "name": "Volunteer T-shirts",
+      "quantity": 40,
+      "description": "Cotton t-shirts with organization logo",
+      "cost": "10.25"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 9,
+    "fields": {
+      "volunteer": 3,
+      "name": "Sunscreen",
+      "quantity": 20,
+      "description": "SPF 50 sunscreen for outdoor events",
+      "cost": "8.75"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 10,
+    "fields": {
+      "volunteer": 4,
+      "name": "Clipboards",
+      "quantity": 15,
+      "description": "Clipboards for event coordinators",
+      "cost": "4.50"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 11,
+    "fields": {
+      "volunteer": 4,
+      "name": "Name Tags",
+      "quantity": 200,
+      "description": "Adhesive name tags for volunteers and participants",
+      "cost": "15.99"
+    }
+  },
+  {
+    "model": "championsapi.inventory",
+    "pk": 12,
+    "fields": {
+      "volunteer": 4,
+      "name": "Folding Tables",
+      "quantity": 6,
+      "description": "Portable folding tables for event setup",
+      "cost": "89.99"
+    }
+  }
+]

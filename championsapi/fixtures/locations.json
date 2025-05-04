@@ -1,0 +1,52 @@
+[
+    {
+      "model": "championsapi.location",
+      "pk": 1,
+      "fields": {
+        "city": "Nashville",
+        "state": "TN",
+        "x_coordinate": 36.1627,
+        "y_coordinate": -86.7816
+      }
+    },
+    {
+      "model": "championsapi.location",
+      "pk": 2,
+      "fields": {
+        "city": "Brentwood",
+        "state": "TN",
+        "x_coordinate": 36.0331,
+        "y_coordinate": -86.7825
+      }
+    },
+    {
+      "model": "championsapi.location",
+      "pk": 3,
+      "fields": {
+        "city": "Franklin",
+        "state": "TN",
+        "x_coordinate": 35.9250,
+        "y_coordinate": -86.8689
+      }
+    },
+    {
+      "model": "championsapi.location",
+      "pk": 4,
+      "fields": {
+        "city": "Murfreesboro",
+        "state": "TN",
+        "x_coordinate": 35.8462,
+        "y_coordinate": -86.3928
+      }
+    },
+    {
+      "model": "championsapi.location",
+      "pk": 5,
+      "fields": {
+        "city": "Hendersonville",
+        "state": "TN",
+        "x_coordinate": 36.3048,
+        "y_coordinate": -86.6200
+      }
+    }
+]

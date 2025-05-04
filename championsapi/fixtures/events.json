@@ -1,0 +1,112 @@
+[
+  {
+    "model": "championsapi.event",
+    "pk": 1,
+    "fields": {
+      "volunteer": 1,
+      "title": "Community Park Cleanup",
+      "location": 1,
+      "time": "09:00:00",
+      "date": "2025-05-15"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 2,
+    "fields": {
+      "volunteer": 2,
+      "title": "Food Bank Distribution",
+      "location": 2,
+      "time": "14:00:00",
+      "date": "2025-05-18"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 3,
+    "fields": {
+      "volunteer": 3,
+      "title": "Senior Center Tech Help",
+      "location": 3,
+      "time": "10:30:00",
+      "date": "2025-05-20"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 4,
+    "fields": {
+      "volunteer": 4,
+      "title": "Animal Shelter Support Day",
+      "location": 2,
+      "time": "13:00:00",
+      "date": "2025-05-22"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 5,
+    "fields": {
+      "volunteer": 1,
+      "title": "Youth Mentorship Workshop",
+      "location": 4,
+      "time": "16:30:00",
+      "date": "2025-05-25"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 6,
+    "fields": {
+      "volunteer": 3,
+      "title": "Neighborhood Garden Planting",
+      "location": 5,
+      "time": "08:00:00",
+      "date": "2025-05-28"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 7,
+    "fields": {
+      "volunteer": 2,
+      "title": "Homeless Shelter Meal Prep",
+      "location": 3,
+      "time": "17:00:00",
+      "date": "2025-06-01"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 8,
+    "fields": {
+      "volunteer": 4,
+      "title": "Beach Cleanup Initiative",
+      "location": 5,
+      "time": "07:30:00",
+      "date": "2025-06-05"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 9,
+    "fields": {
+      "volunteer": 1,
+      "title": "Literacy Program Support",
+      "location": 4,
+      "time": "15:00:00",
+      "date": "2025-06-08"
+    }
+  },
+  {
+    "model": "championsapi.event",
+    "pk": 10,
+    "fields": {
+      "volunteer": 2,
+      "title": "Community Health Fair",
+      "location": 1,
+      "time": "10:00:00",
+      "date": "2025-06-12"
+    }
+  }
+]
