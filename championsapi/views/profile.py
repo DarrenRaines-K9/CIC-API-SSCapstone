@@ -136,35 +136,36 @@ class Profile(ViewSet):
             return HttpResponseServerError(ex)
 
 
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for user profiles"""
+
+    class Meta:
+        model = User
+        fields = ("id", "first_name", "last_name", "email")
+        depth = 1
+
+
 class ProfileSerializer(serializers.ModelSerializer):
     """JSON serializer for user profiles"""
 
-    user = serializers.SerializerMethodField()
+    # user = serializers.SerializerMethodField()
     is_admin = serializers.SerializerMethodField()
+    user = UserSerializer(many=False)
 
     class Meta:
         model = Volunteer
         fields = ("id", "user", "phone_number", "address", "is_admin")
-        depth = 1
+        depth = 2
 
-    def get_user(self, obj):
-        return {
-            "first_name": obj.user.first_name,
-            "last_name": obj.user.last_name,
-            "email": obj.user.email,
-        }
+    # def get_user(self, obj):
+    #     return {
+    #         "first_name": obj.user.first_name,
+    #         "last_name": obj.user.last_name,
+    #         "email": obj.user.email,
+    #     }
 
     def get_is_admin(self, obj):
         if obj.user.is_staff:
             return True
         else:
             return False
-
-
-class UserSerializer(serializers.ModelSerializer):
-    """JSON serializer for user profiles"""
-
-    class Meta:
-        model = User
-        fields = ("first_name", "last_name", "email")
-        depth = 1

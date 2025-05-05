@@ -29,6 +29,7 @@ from championsapi.views import (
     Profile,
     Events,
     InventoryViewset,
+    EventVolunteers,
 )
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -36,6 +37,7 @@ router.register(r"users", Users, "user")
 router.register(r"profile", Profile, "profile")
 router.register(r"events", Events, "event")
 router.register(r"inventory", InventoryViewset, "inventory")
+router.register(r"eventvolunteers", EventVolunteers, "eventvolunteer")
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [

@@ -4,3 +4,4 @@ from .user import Users
 from .profile import Profile
 from .event import Events
 from .inventory import InventoryViewset
+from .event_volunteer import EventVolunteers
