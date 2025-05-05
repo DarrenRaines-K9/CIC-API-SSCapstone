@@ -8,7 +8,7 @@ from rest_framework import serializers
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.parsers import MultiPartParser, FormParser
-from championsapi.models import Event, Volunteer
+from championsapi.models import Event, Volunteer, Location
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -28,21 +28,24 @@ class Events(ViewSet):
     def create(self, request):
         """ "Haandle Post requests to create a new event."""
 
-        new_event = Event()
-        new_event.volunteer = request.data["volunteer"]
-        new_event.title = request.data["title"]
-        new_event.location = request.data["location"]
-        new_event.time = request.data["time"]
-        new_event.date = request.data["date"]
-
-        volunteer = Volunteer.objects.get(pk=request.data["volunteer"])
-        new_event.volunteer = volunteer
-        volunteer.full_clean()
-        volunteer.save()
-
-        serializer = EventSerializer(
-            new_event, many=False, context={"request": request}
-        )
+        event = Event()
+        location = Location()
+        volunteer = Volunteer.objects.get(user=request.auth.user)
+        # event.volunteer = request.data["volunteer"]
+        location.x_coordinate = request.data["location"]["x_coordinate"]
+        location.y_coordinate = request.data["location"]["y_coordinate"]
+        location.city = request.data["location"]["city"]
+        location.state = request.data["location"]["state"]
+        location.full_clean()
+        location.save()
+        event.location = location
+        event.date = request.data["date"]
+        event.time = request.data["time"]
+        event.title = request.data["title"]
+        event.volunteer = volunteer
+        event.full_clean()
+        event.save()
+        serializer = EventSerializer(event, many=False, context={"request": request})
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -68,18 +71,24 @@ class Events(ViewSet):
 
     def update(self, request, pk=None):
         """Handle PUT requests for an event"""
-
         event = Event.objects.get(pk=pk)
-        event.volunteer = request.data["volunteer"]
+        location = Location.objects.get(pk=request.data["location"]["id"])
+        # event.volunteer = request.data["volunteer"]
         event.title = request.data["title"]
-        event.location = request.data["location"]
+        event.location = location
         event.time = request.data["time"]
         event.date = request.data["date"]
+        location.x_coordinate = request.data["location"]["x_coordinate"]
+        location.y_coordinate = request.data["location"]["y_coordinate"]
+        location.city = request.data["location"]["city"]
+        location.state = request.data["location"]["state"]
         event.full_clean()
         event.save()
         volunteer = Volunteer.objects.get(user=request.auth.user)
         volunteer.full_clean()
         volunteer.save()
+        location.full_clean()
+        location.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 

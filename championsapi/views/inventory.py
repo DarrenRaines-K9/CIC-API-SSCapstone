@@ -29,16 +29,14 @@ class InventoryViewset(ViewSet):
         """ "Handle Post requests to create a new event."""
 
         new_inventory = Inventory()
+        volunteer = Volunteer.objects.get(user=request.auth.user)
         new_inventory.name = request.data["name"]
         new_inventory.quantity = request.data["quantity"]
         new_inventory.description = request.data["description"]
         new_inventory.cost = request.data["cost"]
-        new_inventory.name = request.data["name"]
-        new_inventory.quantity = request.data["quantity"]
-        volunteer = Volunteer.objects.get(pk=request.data["volunteer"])
         new_inventory.volunteer = volunteer
-        volunteer.full_clean()
-        volunteer.save()
+        new_inventory.full_clean()
+        new_inventory.save()
 
         serializer = InventorySerializer(
             new_inventory, many=False, context={"request": request}
