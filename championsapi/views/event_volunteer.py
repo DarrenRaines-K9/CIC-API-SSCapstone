@@ -28,6 +28,15 @@ class EventSerializer(serializers.ModelSerializer):
         depth = 0
 
 
+class EventVolunteerSerializer(serializers.ModelSerializer):
+    """JSON serializer for event volunteers"""
+
+    class Meta:
+        model = EventVolunteer
+        fields = ("id", "event", "volunteer")
+        depth = 1
+
+
 class EventVolunteers(ViewSet):
     """Request handler for Event Volunteers in the Champions API."""
 
@@ -36,18 +45,21 @@ class EventVolunteers(ViewSet):
     def create(self, request):
         """ "Handle Post requests to create a new event volunteer."""
 
-        event_volunteer = EventVolunteer()
-        event = Event.objects.get(pk=request.data["event"])
-        volunteer = Volunteer.objects.get(user=request.auth.user)
-        event_volunteer.event = event
-        event_volunteer.volunteer = volunteer
-        event_volunteer.full_clean()
-        event_volunteer.save()
-        serializer = EventSerializer(
-            event_volunteer, many=False, context={"request": request}
-        )
+        try:
+            event_volunteer = EventVolunteer()
+            event = Event.objects.get(pk=request.data["event"])
+            volunteer = Volunteer.objects.get(user=request.auth.user)
+            event_volunteer.event = event
+            event_volunteer.volunteer = volunteer
+            event_volunteer.full_clean()
+            event_volunteer.save()
+            serializer = EventVolunteerSerializer(
+                event_volunteer, many=False, context={"request": request}
+            )
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response({"message": str(ex)}, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for single event volunteer"""
